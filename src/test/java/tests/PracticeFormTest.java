@@ -1,6 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.AutomationPracticeForm;
 import settings.BaseTest;
@@ -35,6 +36,7 @@ public class PracticeFormTest extends BaseTest {
     Map<String, String> registerForm = new HashMap<>();
 
     @Test
+    @Tag("positive")
     void studentRegistrationForm() {
         fillMapForRegisterFormMap();
         practiceForm.openPage();

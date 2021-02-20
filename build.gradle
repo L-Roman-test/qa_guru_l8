@@ -14,14 +14,14 @@ def allureVersion = "2.13.8",
     javaFaker = "1.0.2"
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
             "com.github.javafaker:javafaker:$javaFaker"
     )
-    testRuntimeOnly (
+    testRuntimeOnly(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     )
 }
@@ -35,10 +35,20 @@ allure {
     }
 }
 
+test {
+    useJUnitPlatform()
+}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
-    useJUnitPlatform()
+tasks.withType(Test) {
+    systemProperties += System.properties
+}
+
+task positive(type: Test) {
+    useJUnitPlatform() {
+        includeTags "positive"
+    }
 }
