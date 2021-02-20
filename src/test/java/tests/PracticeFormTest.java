@@ -12,6 +12,7 @@ import java.util.Map;
 import static com.codeborne.selenide.Selenide.page;
 
 public class PracticeFormTest extends BaseTest {
+
     private static final AutomationPracticeForm practiceForm = page(AutomationPracticeForm.class);
     Faker faker = new Faker();
 
@@ -22,7 +23,7 @@ public class PracticeFormTest extends BaseTest {
     String number = faker.phoneNumber().subscriberNumber(10);
     String birthYear = String.valueOf(faker.number().numberBetween(1900, 2100));
     String birthMonth = "august";
-    String birthDay = String.valueOf(faker.number().numberBetween(1, 28));
+    String birthDay = String.valueOf(faker.number().numberBetween(10, 28));
     String subject = "English";
     String sports = "Sports";
     String music = "Music";
