@@ -57,6 +57,15 @@ public class PracticeFormTest extends BaseTest {
         practiceForm.checkRegisterForm(registerForm);
     }
 
+    @Test
+    @Tag("negative")
+    void studentRegistrationFormNegativeTest() {
+        practiceForm.openPage();
+        practiceForm.checkForm();
+        practiceForm.formSuccessfullyFilled();
+        practiceForm.checkRegisterForm(registerForm);
+    }
+
     private void fillMapForRegisterFormMap() {
         registerForm.put("Student Name", firstName + " " + lastName);
         registerForm.put("Student  Email", email);
