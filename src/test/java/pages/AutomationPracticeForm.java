@@ -37,6 +37,7 @@ public class AutomationPracticeForm {
             cityList = $$("#city [id^='react-select-4-option']"),
             filledForm = $$(".table-responsive tbody tr");
 
+    @Step("open demoqa.com/automation-practice-form page")
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
     }
